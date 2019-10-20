@@ -5,7 +5,9 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
  - [nnet](https://gitlab.com/calvinreu/nnet)
 
 ## TODO
-
+ - add mutation function
+ - add species sorting
+ - add cross neural network function
 
 ## in progress
 
