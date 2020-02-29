@@ -1,5 +1,5 @@
 # NEAT
-This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using the [NEAT](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf) or Neuroevolution of augmenting topologies learning mehtod.
+This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using the [NEAT](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf) or Neuroevolution of augmenting topologies learning method.
 
 ## required libraries
  - [nnet](https://gitlab.com/calvinreu/nnet)
