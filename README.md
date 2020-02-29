@@ -3,13 +3,17 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## required libraries
  - [nnet](https://gitlab.com/calvinreu/nnet)
+ - [vector](https://gitlab.com/calvinreu/vector)
 
 ## TODO
- - add mutation function
- - add species sorting
- - add cross neural network function
+    add parent species
+    add crossover
 
 ## in progress
+    add mutation
+
+## Done
+    add activation functions
 
 ## License
 
