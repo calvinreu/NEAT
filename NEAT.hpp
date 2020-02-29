@@ -1,21 +1,21 @@
+#pragma once
 #include <nnet/neural_network.hpp>
+#include <extended/vector>
+#include "genom.hpp"
 
+namespace NEAT{
 
-class NEAT
-{
-private:
-    nnet::neural_network* NeuralNetworks;
-    size_t neuralNetworkC;
+    using extended::vector;
+
+    struct NNet
+    {
+        nnet::neural_network NNet;
+        NEAT::genes NNetGenes;
+    };
     
-public:
-    NEAT();
-    ~NEAT();
-};
-
-NEAT::NEAT()
-{
-}
-
-NEAT::~NEAT()
-{
+    struct population
+    {
+        vector<NEAT::NNet> NNets;
+    };
+    
 }
