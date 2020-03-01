@@ -6,7 +6,6 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
  - [vector](https://gitlab.com/calvinreu/vector)
 
 ## TODO
-    add parent species
     add crossover
 
 ## in progress
@@ -14,6 +13,8 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## Done
     add activation functions
+    add parent species in population
+    add population
 
 ## License
 
