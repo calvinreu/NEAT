@@ -3,7 +3,7 @@
 #include <math.h>
 
 
-namespace AktFunc{
+namespace ActFunc{
     extern double sigmoid(const double &x);
     extern double ReLU(const double &x);
     extern double binary(const double &x);
