@@ -5,23 +5,25 @@
 
 namespace NEAT{
 
+    size_t GLOBALinputC;
+    size_t GLOBALoutputC;
+
     using extended::vector;
 
     struct NNetInfo
     {
         nnet::neural_network_info NNET;
         NEAT::genes NNetGenes;
-        double score;
     };
 
-    class population
+    struct population
     {
-    private:
+        vector<NEAT::genes> NNetGenes;
         vector<nnet::neural_network> NNets;
         vector<NEAT::NNetInfo> parents;
-    public:
+
         population(const size_t &populationSize, const size_t &parentC);
-        void AssignScore(const NEAT::vector<double> &score);
-        const vector<NEAT::NNetInfo>& getParents();
+        void setMutation(vector<NEAT::NNetInfo> &&mutations);
+        const vector<NEAT::NNetInfo>& getParents(const NEAT::vector<size_t> &parentI);
     };
 }
