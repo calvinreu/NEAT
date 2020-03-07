@@ -1,20 +1,26 @@
 # NEAT
+
 This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using the [NEAT](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf) or Neuroevolution of augmenting topologies learning method.
 
 ## required libraries
+
  - [nnet](https://gitlab.com/calvinreu/nnet)
  - [vector](https://gitlab.com/calvinreu/vector)
 
 ## TODO
-    add crossover
 
-## in progress
+    add crossover
+    add construction of NN with genes
     add mutation
 
+## in progress
+
 ## Done
+
     add activation functions
     add parent species in population
     add population
+    add genes
 
 ## License
 
