@@ -3,28 +3,27 @@
 
 
 namespace NEAT{
+
     using extended::vector;
 
-    struct InovationNumberConnection
+    struct ConnectionInovation
     {
-        struct Begin{ nnet::layer Layer;
-                      size_t Node; };
-        struct End{ nnet::layer Layer;
-                    size_t Node; };
-        static size_t InovationNumber;
-    };
-    
-    struct InovationNumberNode
-    {
-        nnet::layer Layer;
-        size_t Node;
-        static size_t InovationNumber;
+        struct begin
+        { nnet::layer layer; size_t node; };
+
+        struct end
+        { nnet::layer layer; size_t node; };
     };
 
-    struct genes
+    struct PublicGene
     {
-        NEAT::vector<NEAT::InovationNumberConnection> connections;
-        NEAT::vector<NEAT::InovationNumberNode> nodes;
+        NEAT::vector<size_t> NodeInovations;//contains connection inovation numberson which the nodes were created on
+        NEAT::vector<NEAT::ConnectionInovation> ConnectionInovations;
     };
-    
+
+    struct NNgene
+    {
+        NEAT::vector<size_t*>  NodeInovation;
+        NEAT::vector<NEAT::ConnectionInovation*> ConnectionInovations;
+    };
 }
