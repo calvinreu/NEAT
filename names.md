@@ -1,3 +1,5 @@
 # variable name extenisoins
-C = count
-I = index
+
+    C = count
+    I = index
+    S = size
