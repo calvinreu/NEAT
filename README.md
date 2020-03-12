@@ -4,16 +4,19 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## required libraries
 
- - [nnet](https://gitlab.com/calvinreu/nnet)
- - [vector](https://gitlab.com/calvinreu/vector)
+- [nnet](https://gitlab.com/calvinreu/nnet)
+- [vector](https://gitlab.com/calvinreu/vector)
 
 ## TODO
 
     add crossover
-    add construction of NN with genes
     add mutation
+    add speciation
+    add parent declaring function
 
 ## in progress
+
+    add construction of NN with genes
 
 ## Done
 
@@ -34,5 +37,3 @@ SPDX-License-Identifier: AGPL-3.0
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
