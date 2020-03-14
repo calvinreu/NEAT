@@ -8,25 +8,38 @@ namespace NEAT{
 
     struct ConnectionInovation
     {
-        struct begin
-        { nnet::layer layer; size_t node; };
-
-        struct end
-        { nnet::layer layer; size_t node; };
+        nnet::layer beginLayer; 
+        size_t beginNode;
+        
+        nnet::layer endLayer; 
+        size_t endNode;
     };
+
+    struct PrivateNodeInovation
+    {
+        size_t* nodeInovation;
+        double(*akt)(const double&);
+    };
+    
+    struct PrivateConnectionInovation
+    {
+        const NEAT::ConnectionInovation* connectionInovation;
+        double weight;
+    };
+    
 
     struct NNetGene
     {
-        static size_t inputLayerS;
-        static size_t outputLayerS;
-        NEAT::vector<size_t*>  NodeInovation;
-        NEAT::vector<NEAT::ConnectionInovation*> ConnectionInovations;
+        NEAT::vector<double(*)(const double&)> inputNodes;
+        NEAT::vector<double(*)(const double&)> outputNodes;
+        NEAT::vector<NEAT::PrivateNodeInovation> nodeInovation;
+        NEAT::vector<NEAT::PrivateConnectionInovation> connectionInovations;
     };
 
     struct PublicGene
     {
-        NEAT::vector<size_t> NodeInovations;//contains connection inovation numberson which the nodes were created on
-        NEAT::vector<NEAT::ConnectionInovation> ConnectionInovations;
+        NEAT::vector<size_t> nodeInovations;//contains connection inovation numberson which the nodes were created on
+        NEAT::vector<NEAT::ConnectionInovation> connectionInovations;
     };
 
     extern nnet::neural_network_info& getNNetConstructionInfo(const NEAT::NNetGene &genom);
