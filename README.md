@@ -16,14 +16,13 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## in progress
 
-    add construction of NN with genes
-
 ## Done
 
     add activation functions
     add parent species in population
     add population
     add genes
+    add construction of NN with genes
 
 ## License
 
