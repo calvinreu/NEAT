@@ -9,12 +9,13 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## TODO
 
-    add crossover
     add mutation
     add speciation
     add parent declaring function
 
 ## in progress
+
+    add crossover
 
 ## Done
 
