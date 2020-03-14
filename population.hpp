@@ -7,23 +7,16 @@ namespace NEAT{
 
     using extended::vector;
 
-    struct NNetInfo
-    {
-        nnet::neural_network_info NNET;
-        //NEAT::genes NNetGenes;
-    };
-
     struct population
     {
-        //vector<NEAT::genes> NNetGenes;
         vector<nnet::neural_network> NNets;
-        vector<NEAT::NNetInfo> parents;
-        //NEAT::genes GlobalGenes;
+        vector<NEAT::NNetGene> genePool;
+
+        vector<nnet::neural_network> parentNNets;
+        vector<NEAT::NNetGene> parentGenes;
+        NEAT::PublicGene GlobalGenes;
 
         population(const size_t &populationSize, const size_t &parentC);
-        //template<typename T>
-        //void setInovationNumber(T &unknownGene);
-        void setMutation(vector<NEAT::NNetInfo> &mutations);
-        const vector<NEAT::NNetInfo>& getParents(const NEAT::vector<size_t> &parentI);
+        void setMutation();
     };
 }

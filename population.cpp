@@ -1,11 +1,12 @@
 #include "population.hpp"
 
 NEAT::population::population(const size_t &populationSize, const size_t &parentC)
-{
-    NNets.add_memory(populationSize);
-    parents.assign(parentC);
-}
-
+:   genePool(populationSize),
+    NNets(populationSize),
+    parentNNets(parentC),
+    parentGenes(parentC)
+{}
+/*
 const vector<NEAT::NNetInfo>& NEAT::population::getParents(const NEAT::vector<size_t> &parentI)
 {
     if (parentI.size() != parents.size())
@@ -33,19 +34,13 @@ const vector<NEAT::NNetInfo>& NEAT::population::getParents(const NEAT::vector<si
     
     return parents;
 }
-
-void NEAT::population::setMutation(vector<NEAT::NNetInfo> &mutations)
+*/
+void NEAT::population::setMutation()
 {
     
-    if(mutations.size() != NNets.max_size() - parents.size())//vector memory - parentC look at get parents
-        throw("different vector size: population::setMutation");
+    if(genePool.size() != NNets.max_size() - NNets.size())//vector memory - parentC look at get parents
+        throw("Warning: NNets.max_size() different vector size NNets.size() in function population::setMutation");
 
-    for(auto i =  mutations.begin(); i < mutations.end(); i++)
-    {
-        NNets.push<const nnet::neural_network_info&>(i->NNET);
-        //NNetGenes.push(std::move(i->NNetGenes));
-    }
+    for(auto i =  genePool.begin(); i < genePool.end(); i++)
+        NNets.push(NEAT::getNNetConstructionInfo(*i));
 }
-
-//template<typename T>
-//void NEAT::population::setInovationNumber(T &InovationNumber)
