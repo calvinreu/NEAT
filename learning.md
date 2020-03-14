@@ -21,6 +21,7 @@
 - Disjoint genes will always be in the new gene
 - the stronger parent excess genes will be added while the excessgenes of the weaker parent will be deleted
 - connection settings will be adopted from the stronger parent
+- activation functions will be adopted from the stronger partent
 
 ## Speciation
 
