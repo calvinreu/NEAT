@@ -22,7 +22,7 @@ nnet::neural_network_info& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &g
     hiddenConnectionC.assign<size_t>(genom.nodeInovation.size(), 0);
     outputConnectionC.assign<size_t>(genom.outputNodes  .size(), 0);
 
-    for (auto i = genom.connectionInovations.begin(); i < genom.connectionInovations.end(); i++)
+    for (auto i = genom.connectionInovation.begin(); i < genom.connectionInovation.end(); i++)
     {
         if (i->connectionInovation->endLayer == nnet::output)
             outputConnectionC[i->connectionInovation->endNode]++;
@@ -36,7 +36,7 @@ nnet::neural_network_info& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &g
     for (size_t i = 0; i < hiddenConnectionC.size(); i++)
         NNetConstructionInfo.hiddenLayer[i].connections.add_memory(hiddenConnectionC[i]);
     
-    for (auto i = genom.connectionInovations.begin(); i < genom.connectionInovations.end(); i++)
+    for (auto i = genom.connectionInovation.begin(); i < genom.connectionInovation.end(); i++)
     {
         if (i->connectionInovation->endLayer == nnet::output)
             NNetConstructionInfo.outputLayer[i->connectionInovation->endNode].connections.push(nnet::connection_info

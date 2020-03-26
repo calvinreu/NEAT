@@ -1,3 +1,4 @@
+#pragma once
 #include <nnet/info_objects.hpp>
 #include <extended/vector>
 
@@ -26,20 +27,24 @@ namespace NEAT{
         const NEAT::ConnectionInovation* connectionInovation;
         double weight;
     };
-    
 
     struct NNetGene
     {
         NEAT::vector<double(*)(const double&)> inputNodes;
         NEAT::vector<double(*)(const double&)> outputNodes;
         NEAT::vector<NEAT::PrivateNodeInovation> nodeInovation;
-        NEAT::vector<NEAT::PrivateConnectionInovation> connectionInovations;
+        NEAT::vector<NEAT::PrivateConnectionInovation> connectionInovation;
+        static size_t* firstNodeInovation;
+        static NEAT::ConnectionInovation* firstConnectionInovation;
     };
+
+    size_t* NNetGene::firstNodeInovation = nullptr;
+    NEAT::ConnectionInovation* NNetGene::firstConnectionInovation = nullptr;
 
     struct PublicGene
     {
         NEAT::vector<size_t> nodeInovations;//contains connection inovation numberson which the nodes were created on
-        NEAT::vector<NEAT::ConnectionInovation> connectionInovations;
+        NEAT::vector<NEAT::ConnectionInovation> connectionInovation;
     };
 
     extern nnet::neural_network_info& getNNetConstructionInfo(const NEAT::NNetGene &genom);
