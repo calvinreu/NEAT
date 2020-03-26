@@ -15,8 +15,6 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## in progress
 
-    add crossover
-
 ## Done
 
     add activation functions
@@ -24,6 +22,7 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
     add population
     add genes
     add construction of NN with genes
+    add crossover
 
 ## License
 
