@@ -58,11 +58,11 @@ int main()
 
     std::cout << "child:\nnode:akt\n";
 
-    for (size_t i = 0; i <  child.nodeInovation.size(); i++)
-        std::cout << child.nodeInovation[i].nodeInovation << ":" << child.nodeInovation[i].akt(0) << std::endl;
+    for (auto i = child.nodeInovation.begin(); i < child.nodeInovation.end(); i++)
+        std::cout << i->nodeInovation << ":" << i->akt(0) << std::endl;
 
     std::cout << "connection\n";
 
-    for (size_t i = 0; i <  child.connectionInovation.size(); i++)
-        std::cout << child.connectionInovation[i].connectionInovation << ":" << child.connectionInovation[i].weight << std::endl;
+    for (auto i = child.connectionInovation.begin(); i <  child.connectionInovation.end(); i++)
+        std::cout << i->connectionInovation << ":" << i->weight << std::endl;
 }
