@@ -9,8 +9,9 @@ NEAT::NNetGene NEAT::crossover(const NEAT::NNetGene &parent1, const NEAT::NNetGe
     child.outputNodes = parent1.outputNodes;
 
     child.nodeInovation.add_memory(parent1.nodeInovation.size() + parent2.nodeInovation.size());
+    child.connectionInovation.add_memory(parent1.connectionInovation.size() + parent2.connectionInovation.size());
 
-    for (size_t* i = parent1.firstNodeInovation; i < parent1.nodeInovation.last().nodeInovation; i++)
+    for (size_t* i = parent1.firstNodeInovation; i <= parent1.nodeInovation.last().nodeInovation; i++)
     {
         if(parent1.nodeInovation[currentElementParent1].nodeInovation == i)
         {
@@ -31,9 +32,9 @@ NEAT::NNetGene NEAT::crossover(const NEAT::NNetGene &parent1, const NEAT::NNetGe
     //this would take to much performance to justify the gained memory
     //child.nodeInovation.free_memory(child.nodeInovation.max_size() - child.nodeInovation.size());
 
-    child.connectionInovation.add_memory(parent1.connectionInovation.size() + parent2.connectionInovation.size());
+    currentElementParent1 = 0, currentElementParent2 = 0;
     
-    for (auto* i = parent1.firstConnectionInovation; i < parent1.connectionInovation.last().connectionInovation; i++)
+    for (auto* i = parent1.firstConnectionInovation; i <= parent1.connectionInovation.last().connectionInovation; i++)
     {
         if(parent1.connectionInovation[currentElementParent1].connectionInovation == i)
         {
