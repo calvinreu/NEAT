@@ -35,6 +35,7 @@ const vector<NEAT::NNetInfo>& NEAT::population::getParents(const NEAT::vector<si
     return parents;
 }
 */
+
 void NEAT::population::setMutation()
 {
     
