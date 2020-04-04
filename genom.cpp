@@ -1,6 +1,9 @@
 #include "genom.hpp"
 
-nnet::neural_network_info& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &genom)
+size_t* NEAT::NNetGene::firstNodeInovation = nullptr;
+NEAT::ConnectionInovation* NEAT::NNetGene::firstConnectionInovation = nullptr;
+
+nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &genom)
 {
     nnet::neural_network_info NNetConstructionInfo;
 
@@ -15,7 +18,7 @@ nnet::neural_network_info& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &g
         NNetConstructionInfo.outputLayer.push(*i);
 
     for (auto i = genom.nodeInovation.begin(); i < genom.nodeInovation.end(); i++)
-        NNetConstructionInfo.hiddenLayer.push(*i);
+        NNetConstructionInfo.hiddenLayer.push(i->akt);
     
     vector<size_t> hiddenConnectionC(genom.nodeInovation.size());//ammount of connections for every neuron
     vector<size_t> outputConnectionC(genom.outputNodes  .size());
@@ -39,17 +42,17 @@ nnet::neural_network_info& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &g
     for (auto i = genom.connectionInovation.begin(); i < genom.connectionInovation.end(); i++)
     {
         if (i->connectionInovation->endLayer == nnet::output)
-            NNetConstructionInfo.outputLayer[i->connectionInovation->endNode].connections.push(nnet::connection_info
-                {.startLayer = i->connectionInovation->beginLayer,
-                 .startNeuron = i->connectionInovation->beginNode,
-                 .weight = i->weight});
+            NNetConstructionInfo.outputLayer[i->connectionInovation->endNode].connections.push(
+                i->connectionInovation->beginLayer,
+                i->connectionInovation->beginNode,
+                i->weight);
         else
-            NNetConstructionInfo.hiddenLayer[i->connectionInovation->endNode].connections.push(nnet::connection_info
-                {.startLayer = i->connectionInovation->beginLayer,
-                 .startNeuron = i->connectionInovation->beginNode,
-                 .weight = i->weight});
+            NNetConstructionInfo.hiddenLayer[i->connectionInovation->endNode].connections.push(
+                i->connectionInovation->beginLayer,
+                i->connectionInovation->beginNode,
+                i->weight);
     }
 
-    return NNetConstructionInfo;
+    return std::move(NNetConstructionInfo);
 
 }

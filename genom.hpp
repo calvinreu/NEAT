@@ -38,14 +38,11 @@ namespace NEAT{
         static NEAT::ConnectionInovation* firstConnectionInovation;
     };
 
-    size_t* NNetGene::firstNodeInovation = nullptr;
-    NEAT::ConnectionInovation* NNetGene::firstConnectionInovation = nullptr;
-
     struct PublicGene
     {
         NEAT::vector<size_t> nodeInovations;//contains connection inovation numberson which the nodes were created on
         NEAT::vector<NEAT::ConnectionInovation> connectionInovation;
     };
 
-    extern nnet::neural_network_info& getNNetConstructionInfo(const NEAT::NNetGene &genom);
+    extern nnet::neural_network_info&& getNNetConstructionInfo(const NEAT::NNetGene &genom);
 }
