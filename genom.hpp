@@ -1,5 +1,6 @@
 #pragma once
 #include <nnet/info_objects.hpp>
+#include <set>
 #include <extended/vector>
 
 
@@ -18,22 +19,26 @@ namespace NEAT{
 
     struct PrivateNodeInovation
     {
-        size_t* nodeInovation;
+        const size_t* nodeInovation;
         double(*akt)(const double&);
+
+        bool operator<(const NEAT::PrivateNodeInovation &other) const { return this->nodeInovation < other.nodeInovation; }
     };
     
     struct PrivateConnectionInovation
     {
         const NEAT::ConnectionInovation* connectionInovation;
         double weight;
+
+        bool operator<(const NEAT::PrivateConnectionInovation &other) const { return this->connectionInovation < other.connectionInovation; }
     };
 
     struct NNetGene
     {
         NEAT::vector<double(*)(const double&)> inputNodes;
         NEAT::vector<double(*)(const double&)> outputNodes;
-        NEAT::vector<NEAT::PrivateNodeInovation> nodeInovation;
-        NEAT::vector<NEAT::PrivateConnectionInovation> connectionInovation;
+        std::set<NEAT::PrivateNodeInovation> nodeInovation;
+        std::set<NEAT::PrivateConnectionInovation> connectionInovation;
         static size_t* firstNodeInovation;
         static NEAT::ConnectionInovation* firstConnectionInovation;
     };

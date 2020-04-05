@@ -17,7 +17,7 @@ nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &
     for (auto i = genom.outputNodes.begin(); i < genom.outputNodes.end(); i++)
         NNetConstructionInfo.outputLayer.push(*i);
 
-    for (auto i = genom.nodeInovation.begin(); i < genom.nodeInovation.end(); i++)
+    for (auto i = genom.nodeInovation.begin(); i != genom.nodeInovation.end(); i++)
         NNetConstructionInfo.hiddenLayer.push(i->akt);
     
     vector<size_t> hiddenConnectionC(genom.nodeInovation.size());//ammount of connections for every neuron
@@ -25,7 +25,7 @@ nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &
     hiddenConnectionC.assign<size_t>(genom.nodeInovation.size(), 0);
     outputConnectionC.assign<size_t>(genom.outputNodes  .size(), 0);
 
-    for (auto i = genom.connectionInovation.begin(); i < genom.connectionInovation.end(); i++)
+    for (auto i = genom.connectionInovation.begin(); i != genom.connectionInovation.end(); i++)
     {
         if (i->connectionInovation->endLayer == nnet::output)
             outputConnectionC[i->connectionInovation->endNode]++;
@@ -39,7 +39,7 @@ nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &
     for (size_t i = 0; i < hiddenConnectionC.size(); i++)
         NNetConstructionInfo.hiddenLayer[i].connections.add_memory(hiddenConnectionC[i]);
     
-    for (auto i = genom.connectionInovation.begin(); i < genom.connectionInovation.end(); i++)
+    for (auto i = genom.connectionInovation.begin(); i != genom.connectionInovation.end(); i++)
     {
         if (i->connectionInovation->endLayer == nnet::output)
             NNetConstructionInfo.outputLayer[i->connectionInovation->endNode].connections.push(
