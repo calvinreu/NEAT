@@ -11,16 +11,17 @@ namespace NEAT{
     struct ConnectionInovation
     {
         nnet::layer beginLayer; 
-        size_t beginNode;
+        size_t beginNode;//inovation number hidden Node
         
         nnet::layer endLayer; 
-        size_t endNode;
+        size_t endNode;//inovation number hidden Node
     };
 
     struct PrivateNodeInovation
     {
         const size_t* nodeInovation;
         double(*akt)(const double&);
+        bool active = false;
 
         bool operator<(const NEAT::PrivateNodeInovation &other) const { return this->nodeInovation < other.nodeInovation; }
     };
@@ -29,6 +30,7 @@ namespace NEAT{
     {
         const NEAT::ConnectionInovation* connectionInovation;
         double weight;
+        bool active = true;
 
         bool operator<(const NEAT::PrivateConnectionInovation &other) const { return this->connectionInovation < other.connectionInovation; }
     };
@@ -49,5 +51,5 @@ namespace NEAT{
         NEAT::vector<NEAT::ConnectionInovation> connectionInovation;
     };
 
-    extern nnet::neural_network_info&& getNNetConstructionInfo(const NEAT::NNetGene &genom);
+    extern nnet::neural_network_info getNNetConstructionInfo(const NEAT::NNetGene &genom);
 }

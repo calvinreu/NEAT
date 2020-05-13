@@ -34,7 +34,9 @@ NEAT::NNetGene NEAT::crossover(const NEAT::NNetGene &parent1, const NEAT::NNetGe
         {
             if(iParent1->connectionInovation == i)
             {
-                child.connectionInovation.insert(*iParent1);
+                if(iParent1->active)
+                    child.connectionInovation.insert(*iParent1);
+                
                 iParent1++;
 
                 if (iParent2->connectionInovation == i)

@@ -3,7 +3,7 @@
 size_t* NEAT::NNetGene::firstNodeInovation = nullptr;
 NEAT::ConnectionInovation* NEAT::NNetGene::firstConnectionInovation = nullptr;
 
-nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &genom)
+nnet::neural_network_info NEAT::getNNetConstructionInfo(const NEAT::NNetGene &genom)
 {
     nnet::neural_network_info NNetConstructionInfo;
 
@@ -53,6 +53,6 @@ nnet::neural_network_info&& NEAT::getNNetConstructionInfo(const NEAT::NNetGene &
                 i->weight);
     }
 
-    return std::move(NNetConstructionInfo);
+    return NNetConstructionInfo;
 
 }
