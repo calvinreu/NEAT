@@ -1,4 +1,4 @@
-CC = g++ -std=c++17
+CC = g++-9 -std=c++17
 
 genom: genom.hpp genom.cpp
 	$(CC) genom.cpp -c -o genom.o
