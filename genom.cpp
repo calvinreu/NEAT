@@ -56,3 +56,23 @@ nnet::neural_network_info NEAT::getNNetConstructionInfo(const NEAT::NNetGene &ge
     return NNetConstructionInfo;
 
 }
+
+size_t* NEAT::PublicGene::addNodeGene(const size_t &nodeGene)
+{
+    for (auto i = nodeInovations.begin(); i < nodeInovations.end(); i++)
+        if(*i == nodeGene)
+            return &i;
+
+    nodeInovations.push(nodeGene);
+    return &nodeInovations.last();
+}
+
+NEAT::ConnectionInovation* NEAT::PublicGene::addConnectionGene(const NEAT::ConnectionInovation &connectionGene)
+{
+    for (auto i = connectionInovation.begin(); i < connectionInovation.end(); i++)
+        if(*i == connectionGene)
+            return &i;
+
+    connectionInovation.push(connectionGene);
+    return &connectionInovation.last();
+}

@@ -12,6 +12,6 @@ namespace ActFunc{
     extern double absolute(const double &x);
     extern double LeCunTan(const double &x);
     extern double gaussian(const double &x);
-
+    void* getAktFunc();
    // typedef double (TanH)(const double&) double tanh(); 
 }
