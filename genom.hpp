@@ -3,7 +3,6 @@
 #include <set>
 #include <extended/vector>
 
-
 namespace NEAT{
 
     using extended::vector;
@@ -25,7 +24,7 @@ namespace NEAT{
         double(*akt)(const double&);
         bool active = false;
 
-        PrivateNodeInovation(const size_t nodeInovation, double(*akt)(const double&)):nodeInovation(nodeInovation), akt(akt){}
+        PrivateNodeInovation(const size_t* nodeInovation, double(*akt)(const double&)):nodeInovation(nodeInovation), akt(akt){}
         bool operator<(const NEAT::PrivateNodeInovation &other) const { return this->nodeInovation < other.nodeInovation; }
     };
     
@@ -35,6 +34,7 @@ namespace NEAT{
         double weight;
         bool active = true;
 
+        PrivateConnectionInovation(const NEAT::ConnectionInovation* connectionInovation, const double &weight):connectionInovation(connectionInovation), weight(weight){}
         bool operator<(const NEAT::PrivateConnectionInovation &other) const { return this->connectionInovation < other.connectionInovation; }
     };
 
