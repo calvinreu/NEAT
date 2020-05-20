@@ -10,6 +10,5 @@ namespace NEAT{
     extern NEAT::NNetGene mutate(const NEAT::NNetGene &parent, NEAT::PublicGene &populationGene, const size_t &mutationRate);
     extern void nodeMutation(const NEAT::NNetGene &parent, NEAT::NNetGene &child, NEAT::PublicGene &publicGene, const size_t &connection);
     extern void connectionMutation(const NEAT::NNetGene &parent, NEAT::NNetGene &child, NEAT::PublicGene &publicGene);
-    extern void changeWeight(const NEAT::NNetGene &parent, NEAT::NNetGene &child);
 
 }

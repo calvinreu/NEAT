@@ -1,6 +1,9 @@
 #include "mutation.hpp"
 
-extern const size_t WeightMutationChance;
+extern const size_t WeightRandomizeChance;
+extern const size_t WeightChangeChance;
+extern const double WeightChangeMax;
+extern const double WeightChangeMin;
 extern const size_t AddNodeChance;//per connection
 extern const size_t AddConnectionChance;
 extern const size_t ProbabilityPrecision;
@@ -10,13 +13,26 @@ extern const double MaxRandomWeight;
 NEAT::NNetGene NEAT::mutate(const NEAT::NNetGene &parent, NEAT::PublicGene &publicGene)
 {
     NEAT::NNetGene child = parent;
-
-    if(random_int()%ProbabilityPrecision < WeightMutationChance)
-        NEAT::changeWeight(parent,child);
+        
     
-    for(size_t i = 0; i < parent.connectionInovation.size(); i++)
-        if(random_int()%ProbabilityPrecision < AddNodeChance)
-            NEAT::nodeMutation(parent, child, publicGene, i);
+    {
+        auto itParent = parent.connectionInovation.begin();
+        auto itChild  = child.connectionInovation.begin();
+
+        for(size_t i = 0; i < parent.connectionInovation.size(); i++)
+        {
+            if(random_int()%ProbabilityPrecision < AddNodeChance)
+                NEAT::nodeMutation(parent, child, publicGene, i);
+
+            if(random_int()%ProbabilityPrecision < WeightRandomizeChance)
+                (const_cast<NEAT::PrivateConnectionInovation*>(&(*itChild)))->weight = random_double(MinRandomWeight, MaxRandomWeight);
+            else if(random_int()&ProbabilityPrecision < WeightChangeChance)
+                (const_cast<NEAT::PrivateConnectionInovation*>(&(*itChild)))->weight = (const_cast<NEAT::PrivateConnectionInovation*>(&(*itParent)))->weight + random_double(WeightChangeMin, WeightChangeMax);
+
+            itChild++;
+            itParent++;
+        }
+    }
     
     if (random_int()%ProbabilityPrecision < AddConnectionChance)
         NEAT::connectionMutation(parent, child, publicGene);
