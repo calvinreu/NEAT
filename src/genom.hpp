@@ -3,6 +3,9 @@
 #include <set>
 #include <extended/vector>
 
+extern const size_t publicGeneNodeBufferSize;
+extern const size_t publicGeneConnectionBufferSize;
+
 namespace NEAT{
 
     using extended::vector;
@@ -56,6 +59,8 @@ namespace NEAT{
         //needs perfomance enhancement for allocating memory
         size_t* addNodeGene(const size_t &nodeGene);
         NEAT::ConnectionInovation* addConnectionGene(const NEAT::ConnectionInovation &connectionGene);
+
+        PublicGene(): nodeInovations(publicGeneConnectionBufferSize){}
     };
 
     extern nnet::neural_network_info getNNetConstructionInfo(const NEAT::NNetGene &genom);

@@ -2,6 +2,8 @@
 
 size_t* NEAT::NNetGene::firstNodeInovation = nullptr;
 NEAT::ConnectionInovation* NEAT::NNetGene::firstConnectionInovation = nullptr;
+extern const size_t publicGeneConnectionPushSize;
+extern const size_t publicGeneNodePushSize;
 
 nnet::neural_network_info NEAT::getNNetConstructionInfo(const NEAT::NNetGene &genom)
 {
@@ -63,6 +65,9 @@ size_t* NEAT::PublicGene::addNodeGene(const size_t &nodeGene)
         if(*i == nodeGene)
             return &i;
 
+    if (nodeInovations.size() == nodeInovations.max_size())
+        nodeInovations.add_memory(publicGeneNodePushSize);
+
     nodeInovations.push(nodeGene);
     return &nodeInovations.last();
 }
@@ -73,6 +78,9 @@ NEAT::ConnectionInovation* NEAT::PublicGene::addConnectionGene(const NEAT::Conne
         if(*i == connectionGene)
             return &i;
 
+    if (connectionInovation.size() == connectionInovation.max_size())
+        connectionInovation.add_memory(publicGeneConnectionPushSize);
+    
     connectionInovation.push(connectionGene);
     return &connectionInovation.last();
 }
