@@ -50,7 +50,7 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
                 iFirst++;
             else
             {
-                score+=NEAT::diff<double>(iFirst->weight, iSecond->weight);
+                score+=NEAT::diff<double>(iFirst->weight, iSecond->weight)*WeightImportance;
                 iSecond++;
                 iFirst++;
             }
