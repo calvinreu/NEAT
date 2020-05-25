@@ -56,7 +56,4 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
             }
         }
     }
-    
-    
-    
 }
