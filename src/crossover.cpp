@@ -7,45 +7,45 @@ NEAT::NNetGene NEAT::crossover(const NEAT::NNetGene &parent1, const NEAT::NNetGe
     child.outputNodes = parent1.outputNodes;
 
     {
-        auto iParent1 = parent1.nodeInovation.begin(), iParent2 = parent2.nodeInovation.begin();
-        for (size_t* i = parent1.firstNodeInovation; i <= parent1.nodeInovation.rbegin()->nodeInovation; i++)
+        auto iParent1 = parent1.nodeInnovation.begin(), iParent2 = parent2.nodeInnovation.begin();
+        for (size_t* i = parent1.firstNodeInnovation; i <= parent1.nodeInnovation.rbegin()->nodeInnovation; i++)
         {
-            if(iParent1->nodeInovation == i)
+            if(iParent1->nodeInnovation == i)
             {
-                child.nodeInovation.insert(*iParent1);
+                child.nodeInnovation.insert(*iParent1);
                 iParent1++;
 
-                if (iParent2->nodeInovation == i)
+                if (iParent2->nodeInnovation == i)
                     iParent2++;
 
             }
-            else if(iParent2->nodeInovation == i)
+            else if(iParent2->nodeInnovation == i)
             {
-                child.nodeInovation.insert(*iParent2);
+                child.nodeInnovation.insert(*iParent2);
                 iParent2++;
             }
         }
     }
     
     {
-        auto iParent1 = parent1.connectionInovation.begin(), iParent2 = parent2.connectionInovation.begin();
+        auto iParent1 = parent1.connectionInnovation.begin(), iParent2 = parent2.connectionInnovation.begin();
 
-        for (auto i = parent1.firstConnectionInovation; i <= parent1.connectionInovation.rbegin()->connectionInovation; i++)
+        for (auto i = parent1.firstConnectionInnovation; i <= parent1.connectionInnovation.rbegin()->connectionInnovation; i++)
         {
-            if(iParent1->connectionInovation == i)
+            if(iParent1->connectionInnovation == i)
             {
                 if(iParent1->active)
-                    child.connectionInovation.insert(*iParent1);
+                    child.connectionInnovation.insert(*iParent1);
                 
                 iParent1++;
 
-                if (iParent2->connectionInovation == i)
+                if (iParent2->connectionInnovation == i)
                     iParent2++;
 
             }
-            else if(iParent2->connectionInovation == i)
+            else if(iParent2->connectionInnovation == i)
             {
-                child.connectionInovation.insert(*iParent2);
+                child.connectionInnovation.insert(*iParent2);
                 iParent2++;
             }
         }

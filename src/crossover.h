@@ -1,6 +1,6 @@
 #pragma once
 
-#include "genom.hpp"
+#include "genome.hpp"
 
 namespace NEAT {
     //parent 1 is stronger than 2

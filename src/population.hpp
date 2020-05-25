@@ -1,7 +1,7 @@
 #pragma once
 #include <nnet/neural_network.hpp>
 #include <extended/vector>
-#include "genom.hpp"
+#include "genome.hpp"
 
 namespace NEAT{
 

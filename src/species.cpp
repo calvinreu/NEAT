@@ -10,16 +10,16 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
     double score = 0;
     //nodes
     {
-        auto iFirst = first.nodeInovation.begin(), iSecond = second.nodeInovation.begin();
+        auto iFirst = first.nodeInnovation.begin(), iSecond = second.nodeInnovation.begin();
         //check for Disjoint
-        while (!(iFirst == first.nodeInovation.end() || iSecond == second.nodeInovation.end()))
+        while (!(iFirst == first.nodeInnovation.end() || iSecond == second.nodeInnovation.end()))
         {
-            if (iFirst->nodeInovation > iSecond->nodeInovation)
+            if (iFirst->nodeInnovation > iSecond->nodeInnovation)
             {
                 score+=DisjointImportance;
                 iSecond++;
             }
-            else if(iFirst->nodeInovation < iSecond->nodeInovation)
+            else if(iFirst->nodeInnovation < iSecond->nodeInnovation)
             {
                 score+=DisjointImportance;
                 iFirst++;
@@ -31,22 +31,22 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
             }
         }
         //excess genes
-        if (iFirst == first.nodeInovation.end())
-            for (iSecond; iSecond != second.nodeInovation.end(); iSecond++)
+        if (iFirst == first.nodeInnovation.end())
+            for (iSecond; iSecond != second.nodeInnovation.end(); iSecond++)
                 score+=ExcessImportance;
         else
-            for (iFirst; iFirst != second.nodeInovation.end(); iFirst++)
+            for (iFirst; iFirst != second.nodeInnovation.end(); iFirst++)
                 score+=ExcessImportance;
     }
     //connections
     {
-        auto iFirst = first.connectionInovation.begin(), iSecond = second.connectionInovation.begin();
+        auto iFirst = first.connectionInnovation.begin(), iSecond = second.connectionInnovation.begin();
 
-        while (!(iFirst == first.connectionInovation.end() || iSecond == second.connectionInovation.end()))
+        while (!(iFirst == first.connectionInnovation.end() || iSecond == second.connectionInnovation.end()))
         {
-            if (iFirst->connectionInovation > iSecond->connectionInovation)
+            if (iFirst->connectionInnovation > iSecond->connectionInnovation)
                 iSecond++;
-            else if(iFirst->connectionInovation < iSecond->connectionInovation)
+            else if(iFirst->connectionInnovation < iSecond->connectionInnovation)
                 iFirst++;
             else
             {

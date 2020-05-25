@@ -1,7 +1,7 @@
 CC = g++-9 -std=c++17
 
-genom: genom.hpp genom.cpp
-	$(CC) genom.cpp -c -o genom.o
+genome: genome.hpp genome.cpp
+	$(CC) genome.cpp -c -o genome.o
 
-crossover: crossover.cpp crossover.h genom.o genom.hpp
+crossover: crossover.cpp crossover.h genome.o genome.hpp
 	$(CC) crossover.cpp -c -o crossover.o
