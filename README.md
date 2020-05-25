@@ -9,14 +9,14 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 ## TODO
 
-    add mutation
-    add speciation
     add parent declaring function
 
 ## in progress
+    add speciation
 
 ## Done
 
+    add mutation
     add activation functions
     add parent species in population
     add population
