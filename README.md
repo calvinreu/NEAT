@@ -28,7 +28,7 @@ This project is a extension to [nnet](https://gitlab.com/calvinreu/nnet) using t
 
 [![AGPL-3.0 License](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl.html)
 
-Libraries
+NEAT
 Copyright (C) 2019 Calvin Reu
 
 SPDX-License-Identifier: AGPL-3.0
