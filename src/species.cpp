@@ -37,6 +37,8 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
         else
             for (iFirst; iFirst != second.nodeInnovation.end(); iFirst++)
                 score+=ExcessImportance;
+
+        score /= NEAT::larger(first.nodeInnovation.size(), second.nodeInnovation.size());
     }
     //connections
     {
@@ -57,3 +59,5 @@ double nnDifferenz(const NEAT::NNetGene& first, const NEAT::NNetGene& second)
         }
     }
 }
+
+size_t NNetC

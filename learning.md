@@ -29,7 +29,3 @@ everything which isn't addressed in this file is done as stated in [this](http:/
 ## Species
 
 - Genetic difference is defined in [this](http://nn.cs.utexas.edu/downloads/papers/stanley.cec02.pdf) NEAT paper on page 3 under the heading _C.ProtectingInnovationthroughSpeciation_
-
-## Suggestions
-
-- Use the size of the neural network to change the fitness values.
